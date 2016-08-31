@@ -1,0 +1,810 @@
+function varargout = gui1(varargin)
+% GUI1 M-file for gui1.fig
+%      GUI1, by itself, creates a new GUI1 or raises the existing
+%      singleton*.
+%
+%      H = GUI1 returns the handle to a new GUI1 or the handle to
+%      the existing singleton*.
+%
+%      GUI1('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in GUI1.M with the given input arguments.
+%
+%      GUI1('Property','Value',...) creates a new GUI1 or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before gui1_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to gui1_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help gui1
+
+% Last Modified by GUIDE v2.5 04-Oct-2015 00:06:42
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @gui1_OpeningFcn, ...
+                   'gui_OutputFcn',  @gui1_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+board = zeros(5);
+mess=0;
+disp(mess);
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before gui1 is made visible.
+function gui1_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to gui1 (see VARARGIN)
+
+% Choose default command line output for gui1
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+
+% UIWAIT makes gui1 wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = gui1_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on button press in btn11.
+function btn11_Callback(hObject, eventdata, handles)
+% hObject    handle to btn11 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(1,1);
+board(1,1)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn11,'BackgroundColor', 'green');
+else
+    set(handles.btn11,'BackgroundColor', 'red');
+end
+% Hint: get(hObject,'Value') returns toggle state of btn11
+
+
+
+% --- Executes on button press in btn12.
+function btn12_Callback(hObject, eventdata, handles)
+% hObject    handle to btn12 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(1,2);
+board(1,2)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn12,'BackgroundColor', 'green');
+else
+    set(handles.btn12,'BackgroundColor', 'red');
+end
+
+    
+% Hint: get(hObject,'Value') returns toggle state of btn12
+
+
+% --- Executes on button press in btn13.
+function btn13_Callback(hObject, eventdata, handles)
+% hObject    handle to btn13 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(1,3);
+board(1,3)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn13,'BackgroundColor', 'green');
+else
+    set(handles.btn13,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn13
+
+
+% --- Executes on button press in btn14.
+function btn14_Callback(hObject, eventdata, handles)
+% hObject    handle to btn14 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(1,4);
+board(1,4)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn14,'BackgroundColor', 'green');
+else
+    set(handles.btn14,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn14
+
+
+% --- Executes on button press in btn15.
+function btn15_Callback(hObject, eventdata, handles)
+% hObject    handle to btn15 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(1,5);
+board(1,5)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn15,'BackgroundColor', 'green');
+else
+    set(handles.btn15,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn15
+
+
+% --- Executes on button press in btn21.
+function btn21_Callback(hObject, eventdata, handles)
+% hObject    handle to btn21 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(2,1);
+board(2,1)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn21,'BackgroundColor', 'green');
+else
+    set(handles.btn21,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn21
+
+
+% --- Executes on button press in btn22.
+function btn22_Callback(hObject, eventdata, handles)
+% hObject    handle to btn22 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(2,2);
+board(2,2)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn22,'BackgroundColor', 'green');
+else
+    set(handles.btn22,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn22
+
+
+% --- Executes on button press in btn23.
+function btn23_Callback(hObject, eventdata, handles)
+% hObject    handle to btn23 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(2,3);
+board(2,3)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn23,'BackgroundColor', 'green');
+else
+    set(handles.btn23,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn23
+
+
+% --- Executes on button press in btn24.
+function btn24_Callback(hObject, eventdata, handles)
+% hObject    handle to btn24 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(2,4);
+board(2,4)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn24,'BackgroundColor', 'green');
+else
+    set(handles.btn24,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn24
+
+
+% --- Executes on button press in btn25.
+function btn25_Callback(hObject, eventdata, handles)
+% hObject    handle to btn25 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(2,5);
+board(2,5)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn25,'BackgroundColor', 'green');
+else
+    set(handles.btn25,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn25
+
+
+% --- Executes on button press in btn31.
+function btn31_Callback(hObject, eventdata, handles)
+% hObject    handle to btn31 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(3,1);
+board(3,1)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn31,'BackgroundColor', 'green');
+else
+    set(handles.btn31,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn31
+
+
+% --- Executes on button press in btn32.
+function btn32_Callback(hObject, eventdata, handles)
+% hObject    handle to btn32 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(3,2);
+board(3,2)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn32,'BackgroundColor', 'green');
+else
+    set(handles.btn32,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn32
+
+
+% --- Executes on button press in btn33.
+function btn33_Callback(hObject, eventdata, handles)
+% hObject    handle to btn33 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(3,3);
+board(3,3)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn33,'BackgroundColor', 'green');
+else
+    set(handles.btn33,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn33
+
+
+% --- Executes on button press in btn34.
+function btn34_Callback(hObject, eventdata, handles)
+% hObject    handle to btn34 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(3,4);
+board(3,4)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn34,'BackgroundColor', 'green');
+else
+    set(handles.btn34,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn34
+
+
+% --- Executes on button press in btn35.
+function btn35_Callback(hObject, eventdata, handles)
+% hObject    handle to btn35 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(3,5);
+board(3,5)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn35,'BackgroundColor', 'green');
+else
+    set(handles.btn35,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn35
+
+
+% --- Executes on button press in btn41.
+function btn41_Callback(hObject, eventdata, handles)
+% hObject    handle to btn41 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(4,1);
+board(4,1)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn41,'BackgroundColor', 'green');
+else
+    set(handles.btn41,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn41
+
+
+% --- Executes on button press in btn42.
+function btn42_Callback(hObject, eventdata, handles)
+% hObject    handle to btn42 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(4,2);
+board(4,2)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn42,'BackgroundColor', 'green');
+else
+    set(handles.btn42,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn42
+
+
+% --- Executes on button press in btn43.
+function btn43_Callback(hObject, eventdata, handles)
+% hObject    handle to btn43 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(4,3);
+board(4,3)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn43,'BackgroundColor', 'green');
+else
+    set(handles.btn43,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn43
+
+
+% --- Executes on button press in btn44.
+function btn44_Callback(hObject, eventdata, handles)
+% hObject    handle to btn44 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(4,4);
+board(4,4)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn44,'BackgroundColor', 'green');
+else
+    set(handles.btn44,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn44
+
+
+% --- Executes on button press in btn45.
+function btn45_Callback(hObject, eventdata, handles)
+% hObject    handle to btn45 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(4,5);
+board(4,5)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn45,'BackgroundColor', 'green');
+else
+    set(handles.btn45,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn45
+
+
+% --- Executes on button press in btn51.
+function btn51_Callback(hObject, eventdata, handles)
+% hObject    handle to btn51 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(5,1);
+board(5,1)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn51,'BackgroundColor', 'green');
+else
+    set(handles.btn51,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn51
+
+
+% --- Executes on button press in btn52.
+function btn52_Callback(hObject, eventdata, handles)
+% hObject    handle to btn52 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(5,2);
+board(5,2)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn52,'BackgroundColor', 'green');
+else
+    set(handles.btn52,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn52
+
+
+% --- Executes on button press in btn53.
+function btn53_Callback(hObject, eventdata, handles)
+% hObject    handle to btn53 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(5,3);
+board(5,3)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn53,'BackgroundColor', 'green');
+else
+    set(handles.btn53,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn53
+
+
+% --- Executes on button press in btn54.
+function btn54_Callback(hObject, eventdata, handles)
+% hObject    handle to btn54 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+disp(mess);
+if (mess==0)
+    return;
+end
+global board;
+n=board(5,4);
+board(5,4)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn54,'BackgroundColor', 'green');
+else
+    set(handles.btn54,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn54
+
+
+% --- Executes on button press in btn55.
+function btn55_Callback(hObject, eventdata, handles)
+% hObject    handle to btn55 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global mess;
+if (mess==0)
+    return;
+end
+global board;
+n=board(5,5);
+board(5,5)=bitcmp(n,1);
+if (n==0)
+    set(handles.btn55,'BackgroundColor', 'green');
+else
+    set(handles.btn55,'BackgroundColor', 'red');
+end
+
+% Hint: get(hObject,'Value') returns toggle state of btn55
+
+
+% --- Executes on button press in btnConfigure.
+function btnConfigure_Callback(hObject, eventdata, handles)
+% hObject    handle to btnConfigure (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global board;
+handleConfigure=[handles.btn11, handles.btn12, handles.btn13, handles.btn14, handles.btn15;
+    handles.btn21, handles.btn22, handles.btn23, handles.btn24, handles.btn25;
+    handles.btn31, handles.btn32, handles.btn33, handles.btn34, handles.btn35;
+    handles.btn41, handles.btn42, handles.btn43, handles.btn44, handles.btn45; 
+    handles.btn51, handles.btn52, handles.btn53, handles.btn54, handles.btn55];board=zeros(5);
+set(handleConfigure,'BackgroundColor', 'red');
+set(handles.btnSolve,'Visible', 'on');
+set(handles.btnConfigure,'Visible', 'off');
+set(handles.txtMoves, 'String', 'Enter the Initial Configuration');
+global mess;
+mess=1;
+
+
+
+
+
+% --- Executes on button press in btnSolve.
+function btnSolve_Callback(hObject, eventdata, handles)
+% hObject    handle to btnSolve (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+clc;
+%clear;
+handleConfigure=[handles.faltu, handles.faltu, handles.faltu, handles.faltu, handles.faltu, handles.faltu, handles.faltu;
+    handles.faltu, handles.btn11, handles.btn12, handles.btn13, handles.btn14, handles.btn15, handles.faltu;
+    handles.faltu, handles.btn21, handles.btn22, handles.btn23, handles.btn24, handles.btn25, handles.faltu;
+    handles.faltu, handles.btn31, handles.btn32, handles.btn33, handles.btn34, handles.btn35, handles.faltu;
+    handles.faltu, handles.btn41, handles.btn42, handles.btn43, handles.btn44, handles.btn45, handles.faltu; 
+    handles.faltu, handles.btn51, handles.btn52, handles.btn53, handles.btn54, handles.btn55, handles.faltu;
+    handles.faltu, handles.faltu, handles.faltu, handles.faltu, handles.faltu, handles.faltu, handles.faltu];
+
+handleMove=[handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu;
+    handles.moveFaltu, handles.move11, handles.move12, handles.move13, handles.move14, handles.move15, handles.moveFaltu;
+    handles.moveFaltu, handles.move21, handles.move22, handles.move23, handles.move24, handles.move25, handles.moveFaltu;
+    handles.moveFaltu, handles.move31, handles.move32, handles.move33, handles.move34, handles.move35, handles.moveFaltu;
+    handles.moveFaltu, handles.move41, handles.move42, handles.move43, handles.move44, handles.move45, handles.moveFaltu; 
+    handles.moveFaltu, handles.move51, handles.move52, handles.move53, handles.move54, handles.move55, handles.moveFaltu;
+    handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu, handles.moveFaltu];
+
+
+set(handles.btnSolve,'Visible', 'off');
+global mess;
+mess=0;
+global board;
+disp(board);
+b=board;
+n1=[0,1,1,1,0,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,0,1,1,1,0]';
+n2=[1,0,1,0,1,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,1,0,1,0,1]';
+
+disp('Input Configuration')
+disp(b)
+b = reshape(b, 25, 1);
+
+if ((mod(dot(b,n1),2)~=0) || (mod(dot(b,n2),2)~=0))
+    disp('This is not a winnable configuration')
+    set(handles.txtMoves, 'String', 'Not a winnable configuration!  Press Start New Game Button ');
+    set(handles.btnConfigure,'Visible', 'on');
+    set(handles.btnSolve,'Visible', 'off');
+    return
+end
+
+    
+B=[1 1 0 0 0; 1 1 1 0 0; 0 1 1 1 0; 0 0 1 1 1; 0 0 0 1 1];
+I=eye(5);
+O=zeros(5);
+A=[B I O O O; I B I O O; O I B I O; O O I B I; O O O I B];
+origA=A;
+
+R=eye(25);
+sz = size(A,1);
+disp('Performing Gauss Jordan Elimination');
+for numcol=1:(sz-1)
+    k = 0;
+    for numrow = numcol:sz
+        if A(numrow,numcol) == 1
+            k=numrow;
+            break
+        end
+    end
+    if (k == 0)
+        continue
+    end
+    
+    for i=k+1:sz
+        if (A(i,numcol) == 1)
+            A(i,:) = mod((A(i,:) + A(k,:)),2);
+            tempR = eye(25);
+            tempR(i,k)=1;
+            R=tempR*R;
+        end    
+    end
+    if k~=numcol
+        A(numcol,:) = mod(A(numcol,:) + A(k,:),2);
+        tempR = eye(25);
+        tempR(numcol,k)=1;
+        R=tempR*R;
+        A(k,:) = mod(A(k,:)+A(numcol,:),2);
+        tempR = eye(25);
+        tempR(k,numcol)=1;
+        R=tempR*R;
+    end    
+end
+
+for numcol=2:sz
+    for numrow=1:numcol-1
+        if A(numrow,numcol)==1  && A(numcol,numcol)==1
+            A(numrow,:) = mod(A(numrow,:) + A(numcol,:),2);
+            tempR = eye(25);
+            tempR(numrow,numcol)=1;
+            R=tempR*R;
+        end
+    end
+end
+
+sol1 = reshape(mod(R*b,2),5,5);
+sol2 = reshape(mod(R*b+n1,2),5,5);
+sol3 = reshape(mod(R*b+n2,2),5,5);
+sol4 = reshape(mod(R*b+n1+n2,2),5,5);
+
+disp('Best Solution to lights out problem is')
+[val,index]=min([sum(sum(sol1)),sum(sum(sol2)),sum(sum(sol3)),sum(sum(sol4))]);
+switch index
+    case 1  
+        output=sol1;
+    case 2
+        output=sol2;
+    case 3
+        output=sol3;
+    case 4
+        output=sol4;
+end
+disp(output);
+set(handles.txtMoves, 'String', ['SOLVING:      Minimum Number of Moves: ' num2str(val)]);
+board=padarray(board,[1 1]);
+for i=2:1:6
+    for j=2:1:6
+%        pause(0.5);
+        set(handleMove,'Visible','off');
+        
+        if (output(i-1,j-1)==1)
+            set(handleMove(i,j),'Visible','on');
+            set(handleMove(i-1,j),'Visible','on');
+            set(handleMove(i+1,j),'Visible','on');
+            set(handleMove(i,j-1),'Visible','on');
+            set(handleMove(i,j+1),'Visible','on');
+            pause(1);
+            set(handleConfigure(i,j),'BackgroundColor','white');
+            pause(2);
+            board(i,j)=bitcmp(board(i,j),1);
+            board(i+1,j)=bitcmp(board(i+1,j),1);
+            board(i-1,j)=bitcmp(board(i-1,j),1);
+            board(i,j-1)=bitcmp(board(i,j-1),1);
+            board(i,j+1)=bitcmp(board(i,j+1),1);
+            if (board(i,j)==1)
+                set(handleConfigure(i,j),'BackgroundColor','green');
+            else
+                set(handleConfigure(i,j),'BackgroundColor','red');
+            end
+            if (board(i-1,j)==1)
+                set(handleConfigure(i-1,j),'BackgroundColor','green');
+            else
+                set(handleConfigure(i-1,j),'BackgroundColor','red');
+            end
+            if (board(i+1,j)==1)
+                set(handleConfigure(i+1,j),'BackgroundColor','green');
+            else
+                set(handleConfigure(i+1,j),'BackgroundColor','red');
+            end
+            if (board(i,j-1)==1)
+                set(handleConfigure(i,j-1),'BackgroundColor','green');
+            else
+                set(handleConfigure(i,j-1),'BackgroundColor','red');
+            end
+            if (board(i,j+1)==1)
+                set(handleConfigure(i,j+1),'BackgroundColor','green');
+            else
+                set(handleConfigure(i,j+1),'BackgroundColor','red');
+            end
+            pause(1);
+            set(handleMove,'Visible','off');
+            pause(1);
+        end
+    end
+end
+
+set(handles.btnConfigure,'Visible', 'on');
+set(handleMove,'Visible','off');
+set(handles.txtMoves, 'String', 'Press Start New Game Button');
+
+
+board=zeros(5);
+
+
+% --- Executes on button press in faltu.
+function faltu_Callback(hObject, eventdata, handles)
+% hObject    handle to faltu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
